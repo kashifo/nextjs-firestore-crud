@@ -41,12 +41,15 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <h1>Contact List</h1>
-      <Link href="/add">
-        <button style={{ marginBottom: "20px" }}>Add Item</button>
-      </Link>
-      <table border="1" cellPadding="10" style={{ width: "100%", textAlign: "left" }}>
+      <div className="container">
+      <header>
+        <h1>Contact List</h1>
+        <a href="/add">
+          <button>Add Contact</button>
+        </a>
+      </header>
+
+      <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -66,9 +69,13 @@ export default function Home() {
                 <td>{item.phone}</td>
                 <td>
                   <Link href={`/edit/${item.id}`}>
-                    <button>Edit</button>
+                    <button>
+                      <i className="fas fa-edit"></i>
+                      Edit
+                    </button>
                   </Link>
                   <button onClick={() => handleDelete(item.id)} style={{ marginLeft: "10px" }}>
+                    <i className="fas fa-trash-alt"></i>
                     Delete
                   </button>
                 </td>

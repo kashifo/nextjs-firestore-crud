@@ -16,24 +16,31 @@ export default function Add() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Add Contact</h1>
-      <input
-        type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-      />
-      <br />
-      <textarea
-        placeholder="Phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-        required
-      ></textarea>
-      <br />
-      <button type="submit">Add</button>
-    </form>
+    <div className="container">
+      <header>
+        <h1>Add Contact</h1>
+      </header>
+      <center>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="Phone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            required
+          />
+          <br />
+          <button type="submit">Add</button>
+        </form>
+      </center>
+    </div>
   );
 }
