@@ -58,7 +58,7 @@ export default function Edit() {
             required
           />
           <br />
-          <button type="submit">Add</button>
+          <button type="submit">Update</button>
         </form>
       </center>
     </div>

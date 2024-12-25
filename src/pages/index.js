@@ -24,13 +24,13 @@ export default function Home() {
   const handleDelete = async (id) => {
     const confirmDelete = confirm("Are you sure you want to delete this item?");
     if (!confirmDelete) return;
-  
+
     try {
       // Delete the document from Firestore
       console.log('delete:', id);
       const docRef = doc(db, "contacts", id);
       await deleteDoc(docRef);
-  
+
       // Update the local state to remove the deleted item
       setItems(items.filter((item) => item.id !== id));
       alert("Contact deleted successfully!");
@@ -41,11 +41,11 @@ export default function Home() {
   };
 
   return (
-      <div className="container">
+    <div className="container">
       <header>
         <h1>Contact List</h1>
         <a href="/add">
-          <button>Add Contact</button>
+          <button class="heading-button">Add Contact</button>
         </a>
       </header>
 
@@ -70,13 +70,17 @@ export default function Home() {
                 <td>
                   <Link href={`/edit/${item.id}`}>
                     <button>
-                      <i className="fas fa-edit"></i>
-                      Edit
+                      <span className="icon-only">
+                        <i className="fas fa-edit"></i>
+                      </span>
+                      <span className="text-only">Edit</span>
                     </button>
                   </Link>
                   <button onClick={() => handleDelete(item.id)} style={{ marginLeft: "10px" }}>
-                    <i className="fas fa-trash-alt"></i>
-                    Delete
+                    <span className="icon-only">
+                      <i className="fas fa-trash-alt"></i>
+                    </span>
+                    <span className="text-only">Delete</span>
                   </button>
                 </td>
               </tr>
